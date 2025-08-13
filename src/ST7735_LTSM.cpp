@@ -50,14 +50,14 @@ void ST7735_LTSM::setAddrWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t 
 void ST7735_LTSM::TFTPowerDown(void)
 {
 	TFTchangeMode(TFT_Display_off_mode);
-	DISPLAY_DC_SetLow;
-	DISPLAY_RST_SetLow;
-	DISPLAY_CS_SetLow;
+	DISPLAY16_DC_SetLow;
+	DISPLAY16_RST_SetLow;
+	DISPLAY16_CS_SetLow;
 	if (_hardwareSPI == true) {
 		SPI.end();
 	}else{
-		DISPLAY_SCLK_SetLow;
-		DISPLAY_SDATA_SetLow;
+		DISPLAY16_SCLK_SetLow;
+		DISPLAY16_SDATA_SetLow;
 	}
 }
 
@@ -65,12 +65,12 @@ void ST7735_LTSM::TFTPowerDown(void)
 	@brief: Method for Hardware Reset pin control
 */
 void ST7735_LTSM::TFTResetPIN() {
-	DISPLAY_RST_SetDigitalOutput;
-	DISPLAY_RST_SetHigh;
+	DISPLAY16_RST_SetDigitalOutput;
+	DISPLAY16_RST_SetHigh;
 	MILLISEC_DELAY(10);
-	DISPLAY_RST_SetLow;
+	DISPLAY16_RST_SetLow;
 	MILLISEC_DELAY(10);
-	DISPLAY_RST_SetHigh;
+	DISPLAY16_RST_SetHigh;
 	MILLISEC_DELAY(10);
 }
 
@@ -92,9 +92,9 @@ void ST7735_LTSM::setupGPIO_SPI(uint32_t speed_hz, int8_t rst, int8_t dc, int8_t
 	_display_DC = dc;
 	_display_CS = cs;
 
-	DISPLAY_DC_SetDigitalOutput;
-	DISPLAY_RST_SetDigitalOutput;
-	DISPLAY_CS_SetDigitalOutput;
+	DISPLAY16_DC_SetDigitalOutput;
+	DISPLAY16_RST_SetDigitalOutput;
+	DISPLAY16_CS_SetDigitalOutput;
 }
 
 /*!
@@ -118,11 +118,11 @@ void ST7735_LTSM::setupGPIO_SPI(uint16_t CommDelay, int8_t rst, int8_t dc, int8_
 	_display_DC = dc;
 	_display_CS = cs;
 
-	DISPLAY_DC_SetDigitalOutput;
-	DISPLAY_RST_SetDigitalOutput;
-	DISPLAY_CS_SetDigitalOutput;
-	DISPLAY_SCLK_SetDigitalOutput;
-	DISPLAY_SDATA_SetDigitalOutput;
+	DISPLAY16_DC_SetDigitalOutput;
+	DISPLAY16_RST_SetDigitalOutput;
+	DISPLAY16_CS_SetDigitalOutput;
+	DISPLAY16_SCLK_SetDigitalOutput;
+	DISPLAY16_SDATA_SetDigitalOutput;
 }
 
 /*!
@@ -130,15 +130,15 @@ void ST7735_LTSM::setupGPIO_SPI(uint16_t CommDelay, int8_t rst, int8_t dc, int8_
 */
 void ST7735_LTSM::TFTGreenTabInitialize() {
 	TFTResetPIN();
-	DISPLAY_DC_SetLow;
-	DISPLAY_DC_SetDigitalOutput;
-	DISPLAY_CS_SetHigh;
-	DISPLAY_CS_SetDigitalOutput;
+	DISPLAY16_DC_SetLow;
+	DISPLAY16_DC_SetDigitalOutput;
+	DISPLAY16_CS_SetHigh;
+	DISPLAY16_CS_SetDigitalOutput;
 if (_hardwareSPI == false){
-	DISPLAY_SCLK_SetLow;
-	DISPLAY_SDATA_SetLow;
-	DISPLAY_SCLK_SetDigitalOutput;
-	DISPLAY_SDATA_SetDigitalOutput;
+	DISPLAY16_SCLK_SetLow;
+	DISPLAY16_SDATA_SetLow;
+	DISPLAY16_SCLK_SetDigitalOutput;
+	DISPLAY16_SDATA_SetDigitalOutput;
 }else{
 	TFTSPIInitialize();
 }
@@ -169,16 +169,16 @@ void ST7735_LTSM::Rcmd2green() {
 */
 void ST7735_LTSM::TFTRedTabInitialize() {
 	TFTResetPIN();
-	DISPLAY_DC_SetLow;
-	DISPLAY_DC_SetDigitalOutput;
-	DISPLAY_CS_SetHigh;
-	DISPLAY_CS_SetDigitalOutput;
+	DISPLAY16_DC_SetLow;
+	DISPLAY16_DC_SetDigitalOutput;
+	DISPLAY16_CS_SetHigh;
+	DISPLAY16_CS_SetDigitalOutput;
 if (_hardwareSPI == false)
 {
-	DISPLAY_SCLK_SetLow;
-	DISPLAY_SDATA_SetLow;
-	DISPLAY_SCLK_SetDigitalOutput;
-	DISPLAY_SDATA_SetDigitalOutput;
+	DISPLAY16_SCLK_SetLow;
+	DISPLAY16_SDATA_SetLow;
+	DISPLAY16_SCLK_SetDigitalOutput;
+	DISPLAY16_SDATA_SetDigitalOutput;
 }else{
 	TFTSPIInitialize();
 }
@@ -194,16 +194,16 @@ if (_hardwareSPI == false)
 */
 void ST7735_LTSM::TFTBlackTabInitialize() {
 	TFTResetPIN();
-	DISPLAY_DC_SetLow;
-	DISPLAY_DC_SetDigitalOutput;
-	DISPLAY_CS_SetHigh;
-	DISPLAY_CS_SetDigitalOutput;
+	DISPLAY16_DC_SetLow;
+	DISPLAY16_DC_SetDigitalOutput;
+	DISPLAY16_CS_SetHigh;
+	DISPLAY16_CS_SetDigitalOutput;
 if (_hardwareSPI == false)
 {
-	DISPLAY_SCLK_SetLow;
-	DISPLAY_SDATA_SetLow;
-	DISPLAY_SCLK_SetDigitalOutput;
-	DISPLAY_SDATA_SetDigitalOutput;
+	DISPLAY16_SCLK_SetLow;
+	DISPLAY16_SDATA_SetLow;
+	DISPLAY16_SCLK_SetDigitalOutput;
+	DISPLAY16_SDATA_SetDigitalOutput;
 }else{
 	TFTSPIInitialize();
 }
@@ -220,16 +220,16 @@ if (_hardwareSPI == false)
 */
 void ST7735_LTSM::TFTST7735BInitialize() {
 	TFTResetPIN();
-	DISPLAY_DC_SetLow;
-	DISPLAY_DC_SetDigitalOutput;
-	DISPLAY_CS_SetHigh;
-	DISPLAY_CS_SetDigitalOutput;
+	DISPLAY16_DC_SetLow;
+	DISPLAY16_DC_SetDigitalOutput;
+	DISPLAY16_CS_SetHigh;
+	DISPLAY16_CS_SetDigitalOutput;
 if (_hardwareSPI == false)
 {
-	DISPLAY_SCLK_SetLow;
-	DISPLAY_SDATA_SetLow;
-	DISPLAY_SCLK_SetDigitalOutput;
-	DISPLAY_SDATA_SetDigitalOutput;
+	DISPLAY16_SCLK_SetLow;
+	DISPLAY16_SDATA_SetLow;
+	DISPLAY16_SCLK_SetDigitalOutput;
+	DISPLAY16_SDATA_SetDigitalOutput;
 }else{
 	TFTSPIInitialize();
 }
