@@ -101,14 +101,12 @@ void arcGauge(uint16_t countLimit)
 	drawGaugeMarkers(x, y, radius, 150, 390, 1.3);
 	drawGaugeMarkers(x, y, radius, 165, 375, 1.1);
 	// Initialize random generator , optional
-  // randomSeed(analogRead(A0));
+	// randomSeed(analogRead(A0));
 	while (count++ < countLimit)
   {
 	int step = random(-10, 11); // Arduino built-in RNG
 	currentValue += step;
-	// Manual clamp
-	if (currentValue < minValue) currentValue = minValue;
-	if (currentValue > maxValue) currentValue = maxValue;
+	currentValue = constrain(currentValue, minValue, maxValue);
 	myTFT.setCursor(10, 100);
 	if (oldValue != currentValue) {
 	  drawPointer(currentValue, oldValue, x, y, radius, myTFT.C_GREEN, myTFT.C_BLACK);

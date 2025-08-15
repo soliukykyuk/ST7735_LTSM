@@ -9,6 +9,7 @@
 * [Overview](#overview)
 * [Installation](#installation)
 * [Dependency](#dependency)
+* [Documentation](#documentation)
 * [Software](#software)
 	* [Examples](#examples)
 	* [SPI](#spi)
@@ -32,7 +33,7 @@ C++ Library for a ST7735 TFT SPI LCD for the Arduino Eco-system.
 5. Advanced frame buffer mode included.
 6. Bitmaps supported: 1, 8 and 16 bit.
 7. Hardware & software SPI options
-8. Code commented for 'doxygen' API generation tool.
+8. [Project url link](https://github.com/gavinlyonsrepo/ST7735_LTSM)
 
 ## Installation
 
@@ -45,7 +46,14 @@ the graphics, bitmaps, and font methods as well as font data and bitmap test dat
 where the user sets options(debug, advanced graphics and frame buffer mode).
 When you install 'ST7735_LTSM' with Arduino IDE. It should install 'display16_LTSM' as well after 
 a prompt, if it does not you have to install it same way as 'ST7735_LTSM'.
-The 'display16_LTSM' project and readme is at [URL github link](https://github.com/gavinlyonsrepo/display16_LTSM)
+The 'display16_LTSM' project and readme is at [URL github link.](https://github.com/gavinlyonsrepo/display16_LTSM)
+'display16_LTSM' is also written by author of this library. 
+
+## Documentation
+
+Code is commented for the 'doxygen' API generation tool.
+Documents on fonts, bitmaps and graphics can be found at 
+the dependency 'display16_LTSM' repository, [URL github link](https://github.com/gavinlyonsrepo/display16_LTSM)
 
 ## Software
 
@@ -132,20 +140,23 @@ Connections as setup in HELLO_WORLD.ino  test file.
 5. Backlight on/off control is left to user.
 
 
-## Tested 
+## Tested
 
-Tested (1-2) on following MCUs both software and hardware SPI,
+Tested with both software and hardware SPI on:
 
-1. ESP32 
-2. UNO Minima R4 (Exception : Frame buffer example will not work here)
+- **ESP32**
+- **Arduino UNO R4 Minima**  
+  *Frame buffer example is not supported on this board.*
 
-Complied only on these 3-5. Note : many low RAM MCU will
-not work if a lot of fonts and bitmaps are used. In addition 'Frame Buffer mode requires 
-Dynamic memory to hold a frame buffer. See dependency readme for more details.
+Compiled only (not fully hardware-tested) on:
 
-3. Arduino UNO & NANO v3
-4. ESP8266 
-5. STM32 "blue pill"
+- **Arduino UNO**
+- **ESP8266**
+- **STM32 “Blue Pill”**
+
+> Some examples on low-RAM MCUs will fail( insufficient memory ), numerous fonts and bitmap data are included.  
+> Frame buffer mode requires sufficient dynamic memory for the buffer — see the README in display16_LTSM for details.
+
 
 
 ## Output
